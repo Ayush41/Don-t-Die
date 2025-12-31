@@ -45,4 +45,3 @@ const styles = StyleSheet.create({
   btn: { backgroundColor: Colors.primary, paddingHorizontal: 40, paddingVertical: 15 },
   btnText: { color: '#000', fontWeight: 'bold', fontSize: 16, letterSpacing: 2 }
 });
-

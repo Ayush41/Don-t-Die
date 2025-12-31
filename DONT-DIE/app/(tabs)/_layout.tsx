@@ -1,33 +1,37 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Colors } from '../../constants/Colors';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors.primary,
+        tabBarInactiveTintColor: Colors.textDim,
         headerShown: false,
-        tabBarButton: HapticTab,
+        tabBarStyle: {
+          backgroundColor: Colors.surface,
+          borderTopColor: Colors.border,
+        },
       }}>
       <Tabs.Screen
-        name="index"
+        name="stopwatch"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Stopwatch',
+          tabBarLabelStyle: { fontFamily: 'monospace' },
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="dont-die"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Don't Die",
+          tabBarLabelStyle: { fontFamily: 'monospace' },
+        }}
+      />
+      <Tabs.Screen
+        name="system"
+        options={{
+          title: 'System',
+          tabBarLabelStyle: { fontFamily: 'monospace' },
         }}
       />
     </Tabs>
